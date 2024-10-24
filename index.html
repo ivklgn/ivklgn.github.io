@@ -4,31 +4,65 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
+
+    <meta name="description" content="ivklgn blog: Articles on software engineering, programming, and research" />
+    <meta name="keywords" content="software engineering, programming, research, development" />
+    <meta name="author" content="Ivan K. (ivklgn)" />
+
+    <meta property="og:title" content="ivklgn blog" />
+    <meta property="og:description" content="Software engineering and research." />
+    <meta property="og:url" content="https://ivklgn.github.io/" />
+    <meta property="og:type" content="website" />
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
-    <title>ivklgn_blog</title>
+
+    <title>ivklgn blog | Software Engineering and Research</title>
   </head>
   <body>
     <header class="container">
       <hgroup>
         <h1>ivklgn blog</h1>
-        <p>Software engineering and research</p>
+        <p>Software Engineering and Research</p>
       </hgroup>
     </header>
+
     <main class="container">
-      <h3>Posts</h3>
-      <article>
-        <h6><a href="some-seo-title.html">Get inspired with CSS</a></h6>
-        <small>How to use CSS to add glam to your Website?</small>
-        <hr />
-        <small>
-          <a href="some-seo-title.html">Russian translation</a>
-        </small>
+      <h2>Latest Posts</h2>
+      <article itemscope itemtype="https://schema.org/Article">
+        <h3 itemprop="headline">
+          <a href="hotpot-tracker-mvp.html" itemprop="url"
+            >Hotpot Tracker – Experimental Project and Goal Management System</a
+          >
+        </h3>
+        <meta itemprop="datePublished" content="2024-10-25" />
+        <p itemprop="description">
+          Hotpot Tracker is an experimental system designed to explore improvements to project/goal management tools
+          such as Jira, Trello, Asana, and others. The project concept combines familiar features with what I believe to
+          be breakthrough ideas for optimizing task management, visualization, and control.
+        </p>
+        <footer>
+          <nav aria-label="Article Navigation">
+            <ul>
+              <li>
+                <small><time datetime="2024-08-24">October 25, 2024</time></small>
+              </li>
+              <li>
+                <small>Ivan K.</small>
+              </li>
+              <li>
+                <small><a href="hotpot-tracker-mvp-ru.html">Russian translation</a></small>
+              </li>
+            </ul>
+          </nav>
+        </footer>
       </article>
     </main>
+
     <footer class="container">
-      <nav>
+      <nav aria-label="Footer Navigation">
         <ul>
-          <li><a href="https://github.com/ivklgn" target="_blank">Github</a></li>
+          <li><a href="https://github.com/ivklgn" target="_blank" rel="noopener noreferrer">Github</a></li>
         </ul>
       </nav>
     </footer>

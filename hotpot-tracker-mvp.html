@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+
+    <meta
+      name="description"
+      content="ivklgn blog: Articles on software engineering, programming, and research innovations."
+    />
+    <meta
+      name="keywords"
+      content="software engineering, programming, project management, productivity tools, Jira alternatives"
+    />
+    <meta name="author" content="Ivan K. (ivklgn)" />
+
+    <meta property="og:title" content="Hotpot Tracker – Experimental Project and Goal Management System" />
+    <meta
+      property="og:description"
+      content="An article about an experimental system designed to explore improvements to project/goal management tools like Jira, Trello, Asana, and others."
+    />
+    <meta property="og:url" content="https://ivklgn.github.io/" />
+    <meta property="og:type" content="website" />
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+
+    <style>
+      figcaption {
+        font-size: 14px;
+      }
+    </style>
+
+    <title>ivklgn blog | Software Engineering and Research</title>
+  </head>
+  <body>
+    <header class="container">
+      <hgroup>
+        <h1><a href="index.html">ivklgn blog</a></h1>
+        Software Engineering and Research
+      </hgroup>
+    </header>
+
+    <main class="container">
+      <article>
+        <h2>Hotpot Tracker – Experimental Project and Goal Management System</h2>
+        <blockquote>Russian version available <a href="hotpot-tracker-mvp-ru.html">here</a></blockquote>
+
+        <p>
+          Hotpot Tracker is an experimental system designed to explore improvements to project/goal management tools
+          such as Jira, Trello, Asana, and others. The project concept combines familiar features with what I believe to
+          be breakthrough ideas for optimizing task management, visualization, and control.
+        </p>
+
+        <p>Main objectives of the experiments:</p>
+        <ol>
+          <li>
+            <strong>Navigation and search:</strong> How can we quickly find relevant tasks while retaining the "task
+            board" paradigm?
+          </li>
+          <li>
+            <strong>Increasing team engagement:</strong> What do existing systems lack to prevent users from migrating
+            to chats?
+          </li>
+          <li>
+            <strong>What defines a "Task"?</strong> A new perspective on this familiar term opens new possibilities.
+          </li>
+          <li>
+            <strong>Optimizing communication:</strong> How can task-related communication be made easier and clearer?
+          </li>
+        </ol>
+
+        <h3>Concept</h3>
+
+        <blockquote>
+          <strong>Disclaimer:</strong><br />
+          This system intentionally avoids complex features like timelines or performance reports, focusing instead on
+          other productivity-boosting aspects.
+        </blockquote>
+
+        <ol>
+          <li>Multiple boards instead of one</li>
+          <li>Attributes for boards and tasks instead of folders</li>
+          <li>Everyone can participate</li>
+          <li>Approvals instead of task status transition rules</li>
+          <li>Linked attributes</li>
+          <li>Remarks instead of comments <sup>in development</sup></li>
+        </ol>
+
+        <h3>Multiple Boards Instead of One</h3>
+        <p>
+          Instead of managing everything on a single overloaded board, you can create separate boards for different
+          goals and tasks. In my experience, many companies using Kanban/Scrum often rely on a single team board with
+          goals represented as epics or milestones.
+        </p>
+
+        <figure>
+          <img src="./images/boards-preview-ru.png" alt="Boards Preview" />
+          <figcaption>Screenshot: Example interface with multiple boards</figcaption>
+        </figure>
+
+        <p>
+          <strong
+            >Managing parallel processes on a single board increases task management complexity and cognitive load for
+            the team.</strong
+          >
+        </p>
+
+        <blockquote>
+          <strong>Idea:</strong><br />
+          Each employee or team creates their own boards tailored to their needs, simplifying navigation and management.
+          For example, one board could be for ongoing tasks, another for long-term objectives (OKRs), and another for
+          incident management.
+        </blockquote>
+
+        <p>
+          Creating boards should be quick and easy—any team member can set up a board as needed. Multiple boards
+          shouldn’t be intimidating, as each can be opened independently to maintain focus during discussions and work.
+        </p>
+
+        <p>
+          Systems like Sentry or Graylog offer inspiration on how search and filtering can be effective. In Hotpot
+          Tracker, filtering boards is simple and efficient using attributes, though task-level search is not yet
+          implemented.
+        </p>
+
+        <figure>
+          <img src="./images/filter-preview-ru.png" alt="Boards filtering" />
+          <figcaption>Screenshot: Board filtering</figcaption>
+        </figure>
+
+        <h3>Attributes for Boards and Tasks</h3>
+        <p>Hotpot Tracker is built around three core entities:</p>
+        <ol>
+          <li>
+            <strong>Task</strong> – title, content, attributes, and a reference to a column. In Hotpot Tracker, a task
+            is primarily treated as a document.
+          </li>
+          <li><strong>Column (Stage)</strong> – status, participants, and a reference to a board.</li>
+          <li><strong>Board</strong> – name.</li>
+        </ol>
+
+        <blockquote>
+          <strong>Idea:</strong><br />
+          A unified attribute system for boards and tasks creates a consistent interface for editing meta-information.
+          Hotpot does not impose predefined attributes on users.
+        </blockquote>
+
+        <figure>
+          <img src="./images/properties-preview-ru.png" alt="Properties Preview" />
+          <figcaption>Screenshot: Board attributes</figcaption>
+        </figure>
+
+        <p>This approach solves two problems:</p>
+        <ol>
+          <li>Finding tasks is easier using attribute filters.</li>
+          <li>Attributes simplify management by making it clear who is responsible for tasks and their deadlines.</li>
+        </ol>
+
+        <blockquote>
+          <strong>Idea:</strong><br />
+          Board attributes are automatically inherited by tasks. For example, if a board has a "Team" attribute, the
+          tasks on that board will display the same attribute.
+        </blockquote>
+
+        <figure>
+          <img src="./images/inherit-props-preview-en.png" alt="Task inheritance additional properties" />
+          <figcaption>Screenshot: Inherited board attributes in a task</figcaption>
+        </figure>
+
+        <h3>Everyone Can Participate</h3>
+        <p>
+          By 2024, it became clear that product management and development are moving in the same direction but operate
+          differently. Product representatives often don't participate directly in development, complicating requirement
+          management. A valuable improvement is functionality that allows indirect participation through boards.
+        </p>
+
+        <figure>
+          <img src="./images/contributors-preview-ru.png" alt="Contributors Preview" />
+          <figcaption>Screenshot: Managing contributors in columns (stages)</figcaption>
+        </figure>
+
+        <blockquote>
+          <strong>Idea:</strong><br />
+          <strong>Stage = Status + Participants.</strong> Each column can be linked to specific participants, such as
+          assigning reviewers or approvers.
+        </blockquote>
+
+        <p>
+          This feature rethinks the collaboration approach, inviting product or analytics representatives to contribute
+          within technical teams.
+        </p>
+
+        <h3>Approvals Instead of Status Transition Rules</h3>
+        <blockquote>
+          <strong>Idea:</strong><br />
+          Instead of complex status transition rules (like in Jira), Hotpot Tracker uses a simple approval system.
+        </blockquote>
+
+        <figure>
+          <img src="./images/approves-preview-ru.png" alt="Approves Preview" />
+          <figcaption>Screenshot: Task approvals</figcaption>
+        </figure>
+
+        <p>
+          Approvals make the process flexible and transparent, similar to GitLab’s review system, where changes are
+          approved before completion.
+        </p>
+
+        <figure>
+          <img src="./images/approves-preview-2-en.png" alt="Approves Preview" />
+          <figcaption>Screenshot: Pending task approvals on the board</figcaption>
+        </figure>
+
+        <h3>Linked Attributes</h3>
+        <blockquote>
+          <strong>Idea:</strong><br />
+          Task attributes (e.g., deadlines, priorities) can be linked to specific contributors.
+        </blockquote>
+
+        <figure>
+          <img src="./images/assoc-properties-preview-ru.png" alt="Associated Properties Preview" />
+          <figcaption>Screenshot: Assigning contributors to attributes</figcaption>
+        </figure>
+
+        <h3>Remarks Instead of Comments <sup>in development</sup></h3>
+        <p>
+          Traditional comments often create noise. Hotpot Tracker replaces them with remarks tied to specific task
+          parts, similar to inline comments in version control systems like GitLab.
+        </p>
+
+        <h3>Conclusion</h3>
+
+        <p>Based on the goals of the experiments, I can conclude the following:</p>
+        <ol>
+          <li>
+            <strong>Navigation and search:</strong> How can we quickly find the necessary tasks while staying within the
+            "task board" paradigm?
+            <p>
+              Attributes for boards/tasks may provide a more convenient UX than full-text search or arranging
+              boards/tasks into different spaces.
+            </p>
+          </li>
+          <li>
+            <strong>Increasing employee engagement:</strong> What do current systems lack that causes users to resort to
+            chats?
+            <p>
+              The ability to assign participants (contributors) to columns allows involving the right people for
+              collaborative decision-making.
+            </p>
+          </li>
+          <li>
+            <strong>What is a "Task"?:</strong> A different perspective on such a familiar term opens up new
+            possibilities.
+            <p>
+              A task is a document + attributes + approval. The focus should be on working on the task's content (its
+              completeness and accuracy), rather than treating the task as a mere formality.
+            </p>
+          </li>
+          <li>
+            <strong>Optimal communication:</strong> How can we make task-related communication simpler and clearer?
+            <p>
+              Moving from regular comments to discussions tied to the task's text will increase the value of
+              communication.
+            </p>
+          </li>
+        </ol>
+        <footer>
+          <nav aria-label="Article Navigation">
+            <ul>
+              <li>
+                <small><time datetime="2024-10-25">October 25, 2024</time></small>
+              </li>
+              <li>
+                <small>Ivan K.</small>
+              </li>
+              <li>
+                <small><a href="hotpot-tracker-mvp-ru.html">Russian translation</a></small>
+              </li>
+              <li>
+                <small>
+                  <a href="https://github.com/ivklgn/ivklgn.github.io/issues" target="_blank" rel="noopener noreferrer">
+                    Found a mistake?</a
+                  >
+                </small>
+              </li>
+            </ul>
+          </nav>
+        </footer>
+      </article>
+    </main>
+  </body>
+</html>
